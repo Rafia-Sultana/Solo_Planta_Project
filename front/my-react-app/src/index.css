@@ -17,7 +17,13 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+.primaryBackground{
+  background-color: #327161;
+}
+.primaryColor{
+  color: #327161;
+ 
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -29,10 +35,12 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+   display: flex;
+   
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding: 20px;
 }
 
 h1 {

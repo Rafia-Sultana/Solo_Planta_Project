@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const SUPER_SECRET_KEY = 'ITS_SECRET_BUT_NOT_HARD';
+const SUPER_SECRET_KEY = 'ITS_SECRET';
 const blockedList: string[] = [];
 
 interface SessionData {
