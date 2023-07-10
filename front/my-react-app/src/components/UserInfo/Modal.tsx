@@ -1,6 +1,7 @@
 import React, { useRef,useState } from 'react';
 
 const Modal: React.FC<{singleInfo: any}> = ({singleInfo}) => {
+  console.log(singleInfo);
   const myModalRef = useRef<HTMLDialogElement>(null);
   const [selectedInfo, setSelectedInfo] = useState(null);
 

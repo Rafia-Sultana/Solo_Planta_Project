@@ -24,6 +24,9 @@
   color: #327161;
  
 }
+.white{
+  color: white;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -35,12 +38,14 @@ a:hover {
 
 body {
   margin: 0;
-   display: flex;
+   /* display: flex; */
+   justify-content: center;
+   align-items: center;
    
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  padding: 20px;
+  padding: 5px;
 }
 
 h1 {

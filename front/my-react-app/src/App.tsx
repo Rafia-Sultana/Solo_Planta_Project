@@ -10,6 +10,11 @@ import SkillLevel from './components/UserInfo/SkillLevel';
 import IndoorOutdoor from './components/UserInfo/IndoorOutdoor';
 import UserInfo from './pages/UserInfo';
 import LightMeter from './components/LightMeter/LightMeter';
+import Modal from './components/UserInfo/Modal';
+import Tab from './components/Home/tab';
+import Home from './pages/Home';
+import FindPlant from './components/FindPlant/FindPlant';
+import Profile from './components/Profile/Profile';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -22,15 +27,23 @@ function App() {
           <Route path='/' element={<LottiePlayer />}></Route>
           <Route path='/light' element={<LightMeter/>}></Route>
 
-          {/* <Route
+          <Route
             path='userinfo'
-            element={<Modal singleInfo={undefined} />}
-          ></Route> */}
+            element={<UserInfo  />}
+          ></Route>
+<Route path='find' element={<FindPlant/>}></Route>
 
-         <Route
+          <Route
+          path='home' element={<Home/>}
+          ></Route>
+          <Route
+          path='profile' element={<Profile/>}
+          ></Route>
+
+         {/* <Route
             path='userinfo'
             element={<UserInfo />}
-          ></Route> 
+          ></Route>  */}
           <Route
             path='login'
             element={

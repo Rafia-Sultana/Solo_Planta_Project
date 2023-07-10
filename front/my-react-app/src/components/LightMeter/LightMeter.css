@@ -1,26 +1,17 @@
-.vertical-slider {
-    height: 200px;
-    width: 150px; /* Adjust the height as needed */
-    display: flex;
-    align-items: center;
-  }
+
   
   .slider {
-    writing-mode: bt-lr; /* Set the writing mode to bottom-to-top */
-    -webkit-appearance: slider-vertical; /* For webkit browsers */
-    width: 10px; /* Adjust the width as needed */
-    background-color: linear-gradient(to bottom, skyblue 0%, yellow 100%);
-    border: none;
-    border-radius: 50px; /* Set the border-radius to create a round slider handle */
-    cursor: pointer;
+   writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical; 
+   
   }
   
   .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Remove the default slider thumb */
-    width: 120px; /* Adjust the width as needed */
-    height: 120px; /* Adjust the height as needed */
-    background-color: linear-gradient(to bottom, skyblue 0%, yellow 100%)blue; /* Set the background color for the slider thumb */
-    border-radius: 50%; /* Make the slider thumb round */
+    -webkit-appearance: none; 
+    width: 120px;
+    height: 120px; 
+    background-color: linear-gradient(to bottom, skyblue 0%, yellow 100%); /* Set the background color for the slider thumb */
+    border-radius: 50%; 
     cursor: pointer;
   }
   

@@ -1,4 +1,3 @@
-import React from 'react';
 import './LightMeter.css'
 
 const LightMeter = () => {
@@ -11,9 +10,9 @@ const LightMeter = () => {
     max="50"
     step="0.5" /> */}
     
-    <div className="vertical-slider">
+    
   <input type="range" className="slider" min="0" max="50" step="0.5" />
-</div>
+
 
 
         </div>
