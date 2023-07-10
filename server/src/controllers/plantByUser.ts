@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { IPlantByUser,PlantByUser } from '../models/plantByUser';
-
+import {Plants,IPlants} from '../models/plants';
 
  const createPlantByUser = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -30,4 +30,19 @@ const getPlantsByUserId = async (req:Request,res:Response): Promise<void> =>{
     console.log(error);
   }
 }
-export default {createPlantByUser,getPlantsByUserId }
+
+const getPlantByName = async (req:Request,res:Response): Promise<void> =>{
+  try {
+    const {name} = req.params;
+    console.log(req.params);
+    const plants = await Plants.find({Appeal:name});
+    // console.log(plants);
+    res.send(plants)
+    
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+export default {createPlantByUser,getPlantsByUserId,getPlantByName }

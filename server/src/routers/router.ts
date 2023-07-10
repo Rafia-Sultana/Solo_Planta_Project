@@ -27,4 +27,6 @@ router.get('/searchByName/:name',searchPlantByNameController.searchPlantByName)
 router.post('/plantByUser',createPlantByUserController.createPlantByUser)
 router.get('/plantByUserId/:id', plantByUserId.getPlantsByUserId)
 
+router.get('/plantByName/:name', plantByUserId.getPlantByName);
+
 export default router;
