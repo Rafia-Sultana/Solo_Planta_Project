@@ -5,11 +5,14 @@ import vegetable from '../../assets/images/vegetables.jpg';
 import foliage from '../../assets/images/foliage2.jpg';
 import cactus from '../../assets/images/cactus2.jpg';
 import { BsSearch } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import Icons from '../Icons/Icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PlantByName from './PlantByName';
 const BASE_URL = 'http://localhost:5000';
 const FindPlant = () => {
+    const navigate = useNavigate();
+
     const [plantByName,setPlantByName] = useState(null)
 
     const plants =[
@@ -55,6 +58,11 @@ const FindPlant = () => {
             if (response.ok) {
                 const data = await response.json();
                 setPlantByName(data);
+                navigate('/plantlist',
+                {
+                    state:data
+                }
+                )
                 
               } else {
                 console.log('Request failed with status:', response.status);
@@ -64,6 +72,9 @@ const FindPlant = () => {
             console.log(error);
         }
     }
+    // useEffect(()=>{
+    //     if(plantByName.length>=1)
+    // },[])
     // console.log(plantByName);
     return (
         <div className='p-4'>

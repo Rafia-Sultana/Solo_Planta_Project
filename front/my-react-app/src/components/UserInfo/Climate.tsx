@@ -5,19 +5,19 @@ import humidtropical from '../../assets/images/tropicalHumid.jpg';
 import aridtropical from '../../assets/images/aridTropical.jpg';
 
 const Climate: React.FC = () => {
-  const modalRef = useRef<HTMLDialogElement>(null);
+  // const modalRef = useRef<HTMLDialogElement>(null);
 
-  const openModal = () => {
-    if (modalRef.current) {
-      modalRef.current.showModal();
-    }
-  };
+  // const openModal = () => {
+  //   if (modalRef.current) {
+  //     modalRef.current.showModal();
+  //   }
+  // };
 
-  const closeModal = () => {
-    if (modalRef.current) {
-      modalRef.current.close();
-    }
-  };
+  // const closeModal = () => {
+  //   if (modalRef.current) {
+  //     modalRef.current.close();
+  //   }
+  // };
   const climateData= [
     {
         climateName: "Tropical",
@@ -42,13 +42,13 @@ const Climate: React.FC = () => {
   ]
   return (
     <div >
-      <button className='btn primaryBackground text-white' onClick={openModal}>
+      {/* <button className='btn primaryBackground text-white' onClick={openModal}>
         Climate
-      </button>
-      <dialog id='my_modal_5' className='modal modal-middle ' ref={modalRef}>
-        <form method='dialog' className='modal-box'>
-          <h3 className='font-bold text-lg text-center'>Skill Level</h3>
-          <p className=''>How skilled are you at taking care of plants?</p>
+      </button> */}
+      {/* <dialog id='' className=' ' ref={modalRef}> */}
+        <form method='' className=''>
+          <h3 className='font-bold text-lg text-center'>Climate</h3>
+          <p className=''>Tell us your Climate </p>
 
         
          {
@@ -68,13 +68,13 @@ const Climate: React.FC = () => {
 
 
 
-          <div className='modal-action'>
+          {/* <div className='modal-action'>
             <button className='btn' onClick={closeModal}>
               Close
             </button>
-          </div>
+          </div> */}
         </form>
-      </dialog>
+      {/* </dialog> */}
     </div>
   );
 };

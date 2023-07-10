@@ -15,6 +15,9 @@ import Tab from './components/Home/tab';
 import Home from './pages/Home';
 import FindPlant from './components/FindPlant/FindPlant';
 import Profile from './components/Profile/Profile';
+
+import PlantByName from './components/FindPlant/PlantByName';
+import PlantInfo from './components/FindPlant/PlantInfo';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -39,7 +42,8 @@ function App() {
           <Route
           path='profile' element={<Profile/>}
           ></Route>
-
+<Route path="/plantList" element={<PlantByName PlantByName={[]} />} />
+<Route path='/plantinfo' element={<PlantInfo/>}></Route>
          {/* <Route
             path='userinfo'
             element={<UserInfo />}

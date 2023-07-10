@@ -6,17 +6,17 @@ import masterPot from '../../assets/images/masterPot.jpg';
 const SkillLevel: React.FC = () => {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  const openModal = () => {
-    if (modalRef.current) {
-      modalRef.current.showModal();
-    }
-  };
+  // const openModal = () => {
+  //   if (modalRef.current) {
+  //     modalRef.current.showModal();
+  //   }
+  // };
 
-  const closeModal = () => {
-    if (modalRef.current) {
-      modalRef.current.close();
-    }
-  };
+  // const closeModal = () => {
+  //   if (modalRef.current) {
+  //     modalRef.current.close();
+  //   }
+  // };
   const skillData= [
     {
         SkillLevel: "Beginner",
@@ -36,11 +36,11 @@ const SkillLevel: React.FC = () => {
   ]
   return (
     <div>
-      <button className='btn  primaryBackground text-white' onClick={openModal}>
+      {/* <button className='btn  primaryBackground text-white' >
         Skill
-      </button>
-      <dialog id='my_modal_5' className='modal modal-middle ' ref={modalRef}>
-        <form method='dialog' className='modal-box'>
+      </button> */}
+      
+        <form method='' className=''>
           <h3 className='font-bold text-lg text-center'>Skill Level</h3>
           <p className=''>How skilled are you at taking care of plants?</p>
 
@@ -59,16 +59,8 @@ const SkillLevel: React.FC = () => {
             </>
             )
          }
-
-
-
-          <div className='modal-action'>
-            <button className='btn' onClick={closeModal}>
-              Close
-            </button>
-          </div>
-        </form>
-      </dialog>
+  </form>
+     
     </div>
   );
 };

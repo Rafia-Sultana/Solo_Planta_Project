@@ -4,19 +4,19 @@ import outdoor from '../../assets/images/outdoor.jpg';
 
 
 const IndoorOutdoor: React.FC = () => {
-  const modalRef = useRef<HTMLDialogElement>(null);
+  // const modalRef = useRef<HTMLDialogElement>(null);
 
-  const openModal = () => {
-    if (modalRef.current) {
-      modalRef.current.showModal();
-    }
-  };
+  // const openModal = () => {
+  //   if (modalRef.current) {
+  //     modalRef.current.showModal();
+  //   }
+  // };
 
-  const closeModal = () => {
-    if (modalRef.current) {
-      modalRef.current.close();
-    }
-  };
+  // const closeModal = () => {
+  //   if (modalRef.current) {
+  //     modalRef.current.close();
+  //   }
+  // };
   const siteData= [
     {
         siteName: "Indoor",
@@ -32,11 +32,11 @@ const IndoorOutdoor: React.FC = () => {
   ]
   return (
     <div>
-      <button className='btn  primaryBackground text-white' onClick={openModal}>
+      {/* <button className='btn  primaryBackground text-white' onClick={openModal}>
       Indoor or Outdoor
-      </button>
-      <dialog id='my_modal_5' className='modal modal-middle ' ref={modalRef}>
-        <form method='dialog' className='modal-box'>
+      </button> */}
+      
+        <form method='' className=''>
           <h3 className='font-bold text-lg text-center'>Indoor or Outdoor</h3>
           <p className=''>Would you like help with plants indoor,outdoor or both?</p>
 
@@ -58,13 +58,13 @@ const IndoorOutdoor: React.FC = () => {
 
 
 
-          <div className='modal-action'>
+          {/* <div className='modal-action'>
             <button className='btn' onClick={closeModal}>
               Close
             </button>
-          </div>
+          </div> */}
         </form>
-      </dialog>
+    
     </div>
   );
 };
