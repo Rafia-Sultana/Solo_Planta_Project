@@ -3,8 +3,17 @@ import tropical from '../../assets/images/tropical.jpg';
 import subTropical from '../../assets/images/subTropical.jpg';
 import humidtropical from '../../assets/images/tropicalHumid.jpg';
 import aridtropical from '../../assets/images/aridTropical.jpg';
+import { useLocation } from 'react-router-dom';
+
+interface climate{ climateName: string; desc: string; image: string; }
 
 const Climate: React.FC = () => {
+  let array: any[] =[]; let array2: climate[]=[];
+  const location= useLocation();
+  const previousData = (location.state)
+  array.push(previousData);
+  console.log(array);
+  // console.log(location.state);
   // const modalRef = useRef<HTMLDialogElement>(null);
 
   // const openModal = () => {
@@ -40,13 +49,21 @@ const Climate: React.FC = () => {
         image: aridtropical
     },
   ]
+ 
+  const handleForm = (singleData: climate) =>{
+   array2.push(singleData)
+  let all = array.concat(array2);
+ console.log(all);
+}
+  
+ 
   return (
     <div >
       {/* <button className='btn primaryBackground text-white' onClick={openModal}>
         Climate
       </button> */}
       {/* <dialog id='' className=' ' ref={modalRef}> */}
-        <form method='' className=''>
+        <form >
           <h3 className='font-bold text-lg text-center'>Climate</h3>
           <p className=''>Tell us your Climate </p>
 
@@ -54,7 +71,7 @@ const Climate: React.FC = () => {
          {
             climateData.map((singleData)=>
             <>
-           <div className="flex justify-center gap-3 my-5">
+           <div className="flex justify-center gap-3 my-5" onClick={()=>handleForm(singleData)}>
            <img src={singleData.image} alt="" className='w-28 rounded-lg'/>
             <div>
             <b>{singleData.climateName}</b>
@@ -75,6 +92,7 @@ const Climate: React.FC = () => {
           </div> */}
         </form>
       {/* </dialog> */}
+      
     </div>
   );
 };

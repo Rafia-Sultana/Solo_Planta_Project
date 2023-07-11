@@ -18,6 +18,9 @@ import Profile from './components/Profile/Profile';
 
 import PlantByName from './components/FindPlant/PlantByName';
 import PlantInfo from './components/FindPlant/PlantInfo';
+import Climate from './components/UserInfo/Climate';
+import Identification from './components/Identification/Identification';
+import HealthAssessment from './components/Identification/HealthAssessment.tsx/HealthAssessment';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -29,12 +32,17 @@ function App() {
         <Routes>
           <Route path='/' element={<LottiePlayer />}></Route>
           <Route path='/light' element={<LightMeter/>}></Route>
+          <Route path='/skillLevel' element={<SkillLevel/>}></Route>
+          <Route path='/indoorOutdoor' element={<IndoorOutdoor/>}></Route>
+          <Route path='/climate' element={<Climate/>}></Route>
 
-          <Route
+          {/* <Route
             path='userinfo'
             element={<UserInfo  />}
-          ></Route>
+          ></Route> */}
 <Route path='find' element={<FindPlant/>}></Route>
+<Route path='identification' element={<Identification/>}></Route>
+<Route path='/fullDescHealth' element={<HealthAssessment/>}></Route>
 
           <Route
           path='home' element={<Home/>}

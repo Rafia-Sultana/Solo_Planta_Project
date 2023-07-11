@@ -2,9 +2,16 @@ import React, { useRef } from 'react';
 import beginner from '../../assets/images/begineerPot.jpg';
 import experienced from '../../assets/images/experiencedPot.jpg';
 import masterPot from '../../assets/images/masterPot.jpg';
+import { useNavigate } from 'react-router-dom';
+interface Skill{ 
+  SkillLevel: string; 
+  desc: string;
+   image: string;
+ }
 
 const SkillLevel: React.FC = () => {
-  const modalRef = useRef<HTMLDialogElement>(null);
+  const navigate = useNavigate();
+  // const modalRef = useRef<HTMLDialogElement>(null);
 
   // const openModal = () => {
   //   if (modalRef.current) {
@@ -34,13 +41,21 @@ const SkillLevel: React.FC = () => {
         image: masterPot
     }
   ]
+const handleForm=(singleData:Skill )=>{
+  navigate('/indoorOutdoor',
+  {
+    state:singleData
+  })
+// console.log(singleData);
+}
+
   return (
     <div>
       {/* <button className='btn  primaryBackground text-white' >
         Skill
       </button> */}
       
-        <form method='' className=''>
+        <form>
           <h3 className='font-bold text-lg text-center'>Skill Level</h3>
           <p className=''>How skilled are you at taking care of plants?</p>
 
@@ -48,7 +63,7 @@ const SkillLevel: React.FC = () => {
          {
             skillData.map((singleData)=>
             <>
-           <div className="flex justify-center gap-3 my-5">
+           <div className="flex justify-center gap-3 my-5"  onClick={()=>handleForm(singleData)} >
            <img src={singleData.image} alt="" className='w-28 rounded-lg'/>
             <div>
             <b>{singleData.SkillLevel}</b>

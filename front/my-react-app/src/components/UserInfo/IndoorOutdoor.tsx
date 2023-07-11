@@ -1,9 +1,15 @@
 import React, { useRef } from 'react';
 import indoor from '../../assets/images/indoor.jpg';
 import outdoor from '../../assets/images/outdoor.jpg';
-
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+interface site{ siteName: string; desc: string; image: string; }
 
 const IndoorOutdoor: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const skillDataByUser = (location.state);
+  console.log(location.state);
   // const modalRef = useRef<HTMLDialogElement>(null);
 
   // const openModal = () => {
@@ -30,6 +36,15 @@ const IndoorOutdoor: React.FC = () => {
     },
    
   ]
+
+  const handleForm = (singleData:site ) =>{
+    // console.log(singleData);
+    navigate('/climate',{
+      state:{
+        singleData,skillDataByUser
+      }
+    })
+  }
   return (
     <div>
       {/* <button className='btn  primaryBackground text-white' onClick={openModal}>
@@ -44,7 +59,7 @@ const IndoorOutdoor: React.FC = () => {
          {
             siteData.map((singleData)=>
             <>
-           <div className="flex justify-center gap-3 my-5">
+           <div className="flex justify-center gap-3 my-5" onClick={()=>handleForm(singleData)}>
            <img src={singleData.image} alt="" className='w-28 rounded-lg'/>
             <div>
             <b>{singleData.siteName}</b>
