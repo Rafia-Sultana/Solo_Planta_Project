@@ -9,7 +9,7 @@ import LeafLottiePlayer from './components/Lottie/LeafLottie.component';
 import SkillLevel from './components/UserInfo/SkillLevel';
 import IndoorOutdoor from './components/UserInfo/IndoorOutdoor';
 import UserInfo from './pages/UserInfo';
-import LightMeter from './components/LightMeter/LightMeter';
+import LightMeter from './components/MyPlants/AddSite/LightMeter/LightMeter';
 import Modal from './components/UserInfo/Modal';
 import Tab from './components/Home/tab';
 import Home from './pages/Home';
@@ -22,6 +22,8 @@ import Climate from './components/UserInfo/Climate';
 import Identification from './components/Identification/Identification';
 import HealthAssessment from './components/Identification/HealthAssessment.tsx/HealthAssessment';
 import MyPlants from './pages/MyPlants';
+import SiteList from './components/MyPlants/AddSite/SiteList';
+import Temperature from './components/MyPlants/AddSite/Temperature/Temperature';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -36,8 +38,9 @@ function App() {
           <Route path='/skillLevel' element={<SkillLevel />}></Route>
           <Route path='/indoorOutdoor' element={<IndoorOutdoor />}></Route>
           <Route path='/climate' element={<Climate />}></Route>
-          <Route path='/addsite' element={<MyPlants/>}></Route>
-
+          <Route path='/addsite' element={<MyPlants />}></Route>
+          <Route path='/sitelist' element={<SiteList />}></Route>
+          <Route path='/temperature' element={<Temperature />}></Route>
           {/* <Route
             path='userinfo'
             element={<UserInfo  />}
