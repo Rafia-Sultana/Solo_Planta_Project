@@ -7,6 +7,7 @@ import getPlantByIdController from '../controllers/plants'
 import searchPlantByNameController from '../controllers/plants'
 import createPlantByUserController from '../controllers/plantByUser'
 import plantByUserId from '../controllers/plantByUser';
+import addSite from '../controllers/site'
 import authMiddleware from '../middlewares/auth';
 
 const router = Router();
@@ -22,6 +23,9 @@ router.post('/addplant',addPlantController.addPlant)
 router.get('/getall',getAallPlantController.getAllPlants)
 router.get('/getbyid/:id',getPlantByIdController.getPlantById)
 router.get('/searchByName/:name',searchPlantByNameController.searchPlantByName)
+
+router.post('/addsite',addSite.createSite);
+router.get('/allsite',addSite.getSite)
 
 
 router.post('/plantByUser',createPlantByUserController.createPlantByUser)

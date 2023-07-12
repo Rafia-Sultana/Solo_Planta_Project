@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
+import addSitInfo from "../../../../Services/AddingSiteInfo";
 
 const temperature = () => {
     const location = useLocation();
@@ -9,7 +10,11 @@ const temperature = () => {
     const [minValue, setMinValue] = useState(25);
     const [maxValue, setMaxValue] = useState(75);
     current["temperature"] = { minValue, maxValue };
-    console.log(current);
+    console.log(typeof minValue);
+    const handleSubmit = async () => {
+        await addSitInfo.addSite(current);
+    }
+
 
     return (
         <div className='mt-72'>
@@ -33,6 +38,7 @@ const temperature = () => {
                     <div style={{ margin: '10px' }}>Max: {maxValue}</div>
                 </div>
             </div>
+            <button onClick={handleSubmit}> submit</button>
         </div>
     )
 

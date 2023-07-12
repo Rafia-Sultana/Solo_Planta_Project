@@ -1,21 +1,31 @@
 import mongoose from './../db';
 
 interface ISite extends mongoose.Document {
+  previous: {
     name: string;
-    light: string;
-    
-  
+    image: string;
+  };
+  volume: number;
+  temparature: {
+    maxValue: number;
+    minValue: number;
+  };
+
+
 }
 
 const siteSchema = new mongoose.Schema<ISite>({
-    name: {
-        type: String,
-        required: true,
-      },
-      light: {
-        type: String,
-        required: true,
-      },
+  previous: {
+    name: { type: String, required: true },
+    image: { type: String, required: true },
+  },
+  volume: { type: Number, required: true },
+  temperature: {
+    minValue: { type: Number, required: true },
+    maxValue: { type: Number, required: true }
+  },
+
+  
 });
 
 const Site = mongoose.model<ISite>('Site', siteSchema);

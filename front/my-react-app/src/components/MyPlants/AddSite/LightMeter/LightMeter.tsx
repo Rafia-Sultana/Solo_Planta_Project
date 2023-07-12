@@ -7,12 +7,13 @@ const LightMeter = () => {
   const navigate = useNavigate();
   const previous = (location.state);
   // console.log;
-  const [volume, setVolume] = useState('');
+  const [volume, setVolume] = useState(50);
   const handleVolumeChange = (e: any) => {
-    setVolume(e.target.value);
+    // console.log(typeof e.target.value);
+    setVolume(Number(e.target.value));
 
   }
-
+  console.log(typeof volume);
   const handleBtn = () => {
     navigate('/temperature', {
       state: {
@@ -27,7 +28,8 @@ const LightMeter = () => {
       <h4>Light Meter</h4>
       <input type="range" onChange={handleVolumeChange} />
       <p>light in your site : {volume} Lux</p>
-      <button onClick={handleBtn} className='primaryBackground white p-3 rounded-lg '>next</button>
+      <button onClick={handleBtn}
+        className='primaryBackground white p-3 rounded-lg '>next</button>
     </div>
   );
 };

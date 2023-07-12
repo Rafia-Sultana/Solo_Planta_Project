@@ -9,22 +9,22 @@ const Icons = () => {
     return (
         <div>
             <section
-        className='fixed bottom-0
+                className='fixed bottom-0
  left-0 right-0 p-4 rounded-t-
   flex justify-between  lightGreen '
-      >
-        <Link to='/home' style={{ color: 'black' }}><AiFillHome size={32} /></Link>
-        
-        <ImLeaf size={iconSize} />
-        <Link to='/find' style={{ color: 'black' }}>
-        <BsSearch size={iconSize} />
-        </Link>
-        <Link to='/profile' style={{ color: 'black' }}>
-        <SiAsciidoctor size={iconSize} />
-        </Link>
-        
-        {/* <AiFillProfile size={iconSize}/> */}
-      </section>
+            >
+                <Link to='/home' style={{ color: 'black' }}><AiFillHome size={32} /></Link>
+
+                <Link to='/addsite' ><ImLeaf size={iconSize} /></Link>
+                <Link to='/find' style={{ color: 'black' }}>
+                    <BsSearch size={iconSize} />
+                </Link>
+                <Link to='/profile' style={{ color: 'black' }}>
+                    <SiAsciidoctor size={iconSize} />
+                </Link>
+
+                {/* <AiFillProfile size={iconSize}/> */}
+            </section>
         </div>
     );
 };
