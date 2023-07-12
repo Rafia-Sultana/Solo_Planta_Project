@@ -11,7 +11,7 @@ const Icons = () => {
             <section
         className='fixed bottom-0
  left-0 right-0 p-4 rounded-t-
-  flex justify-between  bg-lightGreen '
+  flex justify-between  lightGreen '
       >
         <Link to='/home' style={{ color: 'black' }}><AiFillHome size={32} /></Link>
         

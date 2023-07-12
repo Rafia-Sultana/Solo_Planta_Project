@@ -21,6 +21,7 @@ import PlantInfo from './components/FindPlant/PlantInfo';
 import Climate from './components/UserInfo/Climate';
 import Identification from './components/Identification/Identification';
 import HealthAssessment from './components/Identification/HealthAssessment.tsx/HealthAssessment';
+import MyPlants from './pages/MyPlants';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -31,28 +32,25 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LottiePlayer />}></Route>
-          <Route path='/light' element={<LightMeter/>}></Route>
-          <Route path='/skillLevel' element={<SkillLevel/>}></Route>
-          <Route path='/indoorOutdoor' element={<IndoorOutdoor/>}></Route>
-          <Route path='/climate' element={<Climate/>}></Route>
+          <Route path='/light' element={<LightMeter />}></Route>
+          <Route path='/skillLevel' element={<SkillLevel />}></Route>
+          <Route path='/indoorOutdoor' element={<IndoorOutdoor />}></Route>
+          <Route path='/climate' element={<Climate />}></Route>
+          <Route path='/addsite' element={<MyPlants/>}></Route>
 
           {/* <Route
             path='userinfo'
             element={<UserInfo  />}
           ></Route> */}
-<Route path='find' element={<FindPlant/>}></Route>
-<Route path='identification' element={<Identification/>}></Route>
-<Route path='/fullDescHealth' element={<HealthAssessment/>}></Route>
+          <Route path='find' element={<FindPlant />}></Route>
+          <Route path='identification' element={<Identification />}></Route>
+          <Route path='/fullDescHealth' element={<HealthAssessment />}></Route>
 
-          <Route
-          path='home' element={<Home/>}
-          ></Route>
-          <Route
-          path='profile' element={<Profile/>}
-          ></Route>
-<Route path="/plantList" element={<PlantByName PlantByName={[]} />} />
-<Route path='/plantinfo' element={<PlantInfo/>}></Route>
-         {/* <Route
+          <Route path='home' element={<Home />}></Route>
+          <Route path='profile' element={<Profile />}></Route>
+          <Route path='/plantList' element={<PlantByName PlantByName={[]} />} />
+          <Route path='/plantinfo' element={<PlantInfo />}></Route>
+          {/* <Route
             path='userinfo'
             element={<UserInfo />}
           ></Route>  */}
