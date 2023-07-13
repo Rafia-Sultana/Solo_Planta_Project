@@ -4,8 +4,8 @@ import {Plants,IPlants} from '../models/plants';
 
  const createPlantByUser = async (req: Request, res: Response): Promise<void> => {
   try {
-    let { user_id,site_id,plant_id,date } = req.body;
-    // console.log("body", req.body);
+    let { profileId: user_id,singleSiteId: site_id, plantId: plant_id, selectedDate: date } = req.body;
+  //  console.log("body", req.body);
 
     const plant: IPlantByUser = await PlantByUser.create({
         user_id,site_id,plant_id,date 

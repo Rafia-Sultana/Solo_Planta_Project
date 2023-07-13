@@ -4,7 +4,7 @@ interface IPlantByUser extends mongoose.Document {
     user_id:string,
     site_id:string,
     plant_id:string,
-    date:Date
+    date:string
 }
 
 const userPlantSchema = new mongoose.Schema<IPlantByUser>({
@@ -21,7 +21,7 @@ const userPlantSchema = new mongoose.Schema<IPlantByUser>({
     
       },
       date: {
-        type: Date,
+        type: String,
        
       },
 

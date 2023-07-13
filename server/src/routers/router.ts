@@ -33,4 +33,6 @@ router.get('/plantByUserId/:id', plantByUserId.getPlantsByUserId)
 
 router.get('/plantByName/:name', plantByUserId.getPlantByName);
 
+router.get('/userinfo/:id',userInfoController.getUserInfo)
+
 export default router;

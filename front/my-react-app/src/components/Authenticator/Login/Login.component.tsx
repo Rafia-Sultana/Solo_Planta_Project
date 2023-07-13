@@ -37,16 +37,16 @@ const LoginComponent = (props: Authentication) => {
       Cookies.set('accessToken', loginData.accessToken);
       props.setIsAuthenticated(true);
       setState(initialState);
-      navigate('/userInfo');
+      navigate('/skillLevel');
     }
   };
   const validateForm = () => {
     return !state.email || !state.password;
   };
   return (
-   
+
     <div className=''>
-      
+
       <h2 className='text-green-800 text-center  font-bold text-3xl mb-4'>LogIn</h2>
       <>
         <form onSubmit={handleSubmit} className='space-y-4'>
@@ -76,9 +76,9 @@ const LoginComponent = (props: Authentication) => {
             Login
           </button>
         </form>
-        
+
       </>
-      <LeafLottiePlayer/>
+      <LeafLottiePlayer />
     </div>
   );
 };

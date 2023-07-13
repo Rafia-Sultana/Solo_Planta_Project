@@ -4,11 +4,12 @@ interface IUserInfo extends mongoose.Document {
     skill_level: string;
     climate: string;
     indoor_outdoor: string;
+    userId:string
   
 }
 
 const userInfoSchema = new mongoose.Schema<IUserInfo>({
-    skill_level: {
+  skill_level: {
         type: String,
         required: true,
       },
@@ -20,6 +21,10 @@ const userInfoSchema = new mongoose.Schema<IUserInfo>({
         type: String,
         required: true,
       },
+      userId:{
+        type: String,
+        required: true,
+      }
 });
 
 const UserInfo = mongoose.model<IUserInfo>('UserInfo', userInfoSchema);

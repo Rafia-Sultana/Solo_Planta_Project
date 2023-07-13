@@ -19,6 +19,7 @@ interface SiteInfo {
     },
     volume: number
 }
+const token: string | null = localStorage.getItem('accessToken');
 addSitInfo = {
     addSite: async (siteInfo: SiteInfo): Promise<RegisterResponse> => {
 
@@ -29,6 +30,21 @@ addSitInfo = {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(siteInfo),
         })
+            .then((res) => res.json())
+            .catch((err) => console.log(err));
+    },
+
+    getSite: async (): Promise<void> => {
+        return await fetch(`${BASE_URL}/allsite`,
+            {
+                method: 'GET',
+                credentials: 'include',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: `Bearer ${token}`,
+                },
+            })
             .then((res) => res.json())
             .catch((err) => console.log(err));
     }

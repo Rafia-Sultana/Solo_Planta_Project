@@ -24,6 +24,7 @@ import HealthAssessment from './components/Identification/HealthAssessment.tsx/H
 import MyPlants from './pages/MyPlants';
 import SiteList from './components/MyPlants/AddSite/SiteList';
 import Temperature from './components/MyPlants/AddSite/Temperature/Temperature';
+import SelectedSite from './components/MyPlants/SelectedSite/SelectedSite';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path='/addsite' element={<MyPlants />}></Route>
           <Route path='/sitelist' element={<SiteList />}></Route>
           <Route path='/temperature' element={<Temperature />}></Route>
+          <Route path='/selectedsite' element={<SelectedSite />}></Route>
           {/* <Route
             path='userinfo'
             element={<UserInfo  />}

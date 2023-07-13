@@ -105,8 +105,8 @@ const profile = async (req: Request, res: Response): Promise<void> => {
       res.status(404).send('user not found');
       return;
     }
-    const { name,email } = profile;
-    res.status(200).send({ name,email});
+    const {_id, name,email } = profile;
+    res.status(200).send({ _id,name,email});
   } catch (error) {
     console.log(error);
     res.status(500).send(error);

@@ -1,10 +1,11 @@
 
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
 import addSitInfo from "../../../../Services/AddingSiteInfo";
 
 const temperature = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const current = (location.state);
     const [minValue, setMinValue] = useState(25);
@@ -13,6 +14,8 @@ const temperature = () => {
     console.log(typeof minValue);
     const handleSubmit = async () => {
         await addSitInfo.addSite(current);
+        navigate('/find')
+
     }
 
 
