@@ -1,4 +1,6 @@
+import { TfiPlus } from "react-icons/tfi";
 import { useNavigate } from "react-router-dom";
+import Icons from "../../Icons/Icons";
 
 const AddPlant = () => {
     const navigate = useNavigate();
@@ -9,8 +11,8 @@ const AddPlant = () => {
         <div className="fixed bottom-4 right-4">
             <button
                 onClick={handleClick}
-                className="primaryBackground rounded-lg text-white py-3 px-4">
-                Add Plant</button>
+                className="primaryBackground rounded-full p-4 mb-16 white">
+                <TfiPlus size={27} /></button> <Icons />
         </div>
 
     );

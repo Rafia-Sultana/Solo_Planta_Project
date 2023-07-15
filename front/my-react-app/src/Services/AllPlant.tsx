@@ -49,5 +49,31 @@ plants.plantByName = async () => {
     .then((res) => res.json())
     .catch((err) => console.log(err));
 };
+plants.getPlantByUser = async () => {
+  return await fetch(`${BASE_URL}/getplantbyuser`, {
+    method: 'GET',
+    credentials: 'include',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${token}`
+    }
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+};
+
+plants.filterPlantByUser = async (filterPlant: Plants): Promise<void> => {
+  return await fetch(`${BASE_URL}/filter`, {
+    method: 'POST',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(filterPlant),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+
+}
 
 export default plants;

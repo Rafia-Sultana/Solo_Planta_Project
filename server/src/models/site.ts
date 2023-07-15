@@ -10,8 +10,9 @@ interface ISite extends mongoose.Document {
     maxValue: number;
     minValue: number;
   };
-
-
+  userId: {
+    profileId: string;
+  };
 }
 
 const siteSchema = new mongoose.Schema<ISite>({
@@ -22,10 +23,11 @@ const siteSchema = new mongoose.Schema<ISite>({
   volume: { type: Number, required: true },
   temperature: {
     minValue: { type: Number, required: true },
-    maxValue: { type: Number, required: true }
+    maxValue: { type: Number, required: true },
   },
-
-  
+  userId: {
+    profileId: { type: String, required: true },
+  },
 });
 
 const Site = mongoose.model<ISite>('Site', siteSchema);

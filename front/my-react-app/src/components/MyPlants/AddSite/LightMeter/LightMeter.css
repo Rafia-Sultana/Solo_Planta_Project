@@ -1,41 +1,35 @@
-input[type=range]{
+input[type='range'] {
   -webkit-appearance: none;
   transform: rotate(270deg);
   width: 200px;
-  height: 200px;
-/*     padding: 0 5px; */
+  height: 200px; /* Increased height to 300px */
 }
 
-input[type=range]::-webkit-slider-runnable-track {
-width: 100%;
-height: 50px;
-cursor: pointer;
-animate: 0.2s;
-box-shadow: 1px 1px 1px #000000;
-background: #4776e6; /* fallback for old browsers */
-background: -webkit-linear-gradient(
-  to left,
-  #f5d57f,
-  #06bf97,
-  #0631bf
-); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(
-  to left,
-  #f5d57f,
-  #06bf97,
-  #0631bf
-);
-border-radius: 30px;
-border: 0px solid #010101;
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 50px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #4776e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #f5d57f,
+    #06bf97,
+    #0631bf
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #f5d57f, #06bf97, #0631bf);
+  border-radius: 30px;
+  border: 0px solid #010101;
 }
 
-input[type=range]::-webkit-slider-thumb {
-/*   box-shadow: 1px 1px 1px #000000; */
-border: 1px solid #000000;
-height: 50px;
-width: 10px;
-border-radius: 5px;
-background: #FFFFFF;
-cursor: pointer;
--webkit-appearance: none;
+input[type='range']::-webkit-slider-thumb {
+  /*   box-shadow: 1px 1px 1px #000000; */
+  border: 1px solid #000000;
+  height: 50px;
+  width: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
 }

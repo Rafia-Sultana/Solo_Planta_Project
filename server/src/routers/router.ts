@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import  authenticationController from '../controllers/authentication';
+import authenticationController from '../controllers/authentication';
 import userInfoController from '../controllers/userInfo';
-import addPlantController from '../controllers/plants'
-import getAallPlantController from '../controllers/plants'
-import getPlantByIdController from '../controllers/plants'
-import searchPlantByNameController from '../controllers/plants'
-import createPlantByUserController from '../controllers/plantByUser'
+import addPlantController from '../controllers/plants';
+import getAallPlantController from '../controllers/plants';
+import getPlantByIdController from '../controllers/plants';
+import searchPlantByNameController from '../controllers/plants';
+import createPlantByUserController from '../controllers/plantByUser';
 import plantByUserId from '../controllers/plantByUser';
-import addSite from '../controllers/site'
+import addSite from '../controllers/site';
 import authMiddleware from '../middlewares/auth';
 
 const router = Router();
@@ -18,21 +18,24 @@ router.post('/login', authenticationController.login);
 router.get('/profile', authMiddleware, authenticationController.profile);
 router.get('/logout', authMiddleware, authenticationController.logout);
 
-router.post('/userInfo',userInfoController.createUserInfo);
-router.post('/addplant',addPlantController.addPlant)
-router.get('/getall',getAallPlantController.getAllPlants)
-router.get('/getbyid/:id',getPlantByIdController.getPlantById)
-router.get('/searchByName/:name',searchPlantByNameController.searchPlantByName)
+router.post('/userInfo', userInfoController.createUserInfo);
+router.post('/addplant', addPlantController.addPlant);
+router.get('/getall', getAallPlantController.getAllPlants);
+router.get('/getbyid/:id', getPlantByIdController.getPlantById);
+router.get(
+  '/searchByName/:name',
+  searchPlantByNameController.searchPlantByName
+);
 
-router.post('/addsite',addSite.createSite);
-router.get('/allsite',addSite.getSite)
+router.post('/addsite', addSite.createSite);
+router.get('/allsite', addSite.getSite);
 
-
-router.post('/plantByUser',createPlantByUserController.createPlantByUser)
-router.get('/plantByUserId/:id', plantByUserId.getPlantsByUserId)
+router.post('/plantByUser', createPlantByUserController.createPlantByUser);
+router.get('/plantByUserId/:id', plantByUserId.getPlantsByUserId);
 
 router.get('/plantByName/:name', plantByUserId.getPlantByName);
-
-router.get('/userinfo/:id',userInfoController.getUserInfo)
+router.get('/getplantbyuser', createPlantByUserController.getPlantsByUser);
+router.get('/userinfo/:id', userInfoController.getUserInfo);
+router.post('/filter', createPlantByUserController.plantByFilter);
 
 export default router;

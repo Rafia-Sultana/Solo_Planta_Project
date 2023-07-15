@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import addSitInfo from '../../../Services/AddingSiteInfo';
 import authJWT from '../../../Services/ApiServiceJWT';
@@ -18,7 +18,10 @@ interface site {
     temperature: {
         maxValue: number;
         minValue: number;
-    };
+    },
+    userId: {
+        profileId: string
+    }
 }
 interface ProfileData {
     _id: string;
@@ -35,6 +38,7 @@ interface Userinfo {
 
 
 const SelectedSite = () => {
+
     const notify = () => toast("This plant is not for you..You may check other");
     const navigate = useNavigate();
     const location = useLocation();
@@ -54,7 +58,8 @@ const SelectedSite = () => {
     const [selectedDate, setSelectedDate] = useState('');
     const [profile, setProfile] = useState<ProfileData | null>(null);
     const profileId = profile?._id;
-    console.log(profileId);
+    // console.log(profileId);
+    // console.log(userinfo);
 
 
 
@@ -72,6 +77,7 @@ const SelectedSite = () => {
 
         fetchData();
     }, []);
+    // console.log(allSite);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -110,7 +116,9 @@ const SelectedSite = () => {
 
         const createPlant = { profileId, singleSiteId, plantId, selectedDate }
         // console.log(singleSiteId);
+
         await AllPlant.createPlantByUser(createPlant);
+
 
     };
 
@@ -123,39 +131,47 @@ const SelectedSite = () => {
         const { value } = e.target;
         setSelectedDate(value);
     };
+    const handlecClick = () => {
+        // console.log('clicked');
+        navigate('/done')
+    }
+
     return (
-        <div>
-            <p className='text-green-500'>Hello {profile?.name}</p>
+        <div className='p-4'>
 
 
-            <h3 className='text-center font-bold'>Pick a Site</h3>
+
+            <h3 className='text-center font-bold'>Pick a Site...
+                <span className='text-green-500 font-bold'>{profile?.name}!!</span>
+            </h3>
             <input
                 type='date'
                 min={currentDate}
                 value={selectedDate}
                 onChange={handleChange}
                 required
+                className='ml-52 my-5'
             />
             {allSite.map((singleSite: site) => (
                 <div
-                    className='flex flex-row gap-5 justify-center items-center  '
+                    className='flex flex-row gap-5 justify-start items-center'
                     key={singleSite._id}
                     onClick={() => handleSingleSite(singleSite._id)}
                 >
-
-
-                    {(singleSite.temperature.maxValue >= plantMaxTemp)
-
-                        ? (
-                            <p>
-                                <ToastContainer /></p>
-                        ) : null}
-
-                    <img onClick={notify} src={singleSite.previous.image} className='w-28 h-28' alt='' />
-                    <p>{singleSite.previous.name}</p>
-
+                    {singleSite.userId.profileId === profileId ? (
+                        <div className='my-2' onClick={handlecClick} >
+                            <img src={singleSite.previous.image}
+                                className='w-28 h-28 rounded-lg' alt='' />
+                            <p>{singleSite.previous.name}</p>
+                        </div>
+                    ) : (
+                        <>
+                            <p></p>
+                        </>
+                    )}
                 </div>
             ))}
+
         </div>
     );
 };

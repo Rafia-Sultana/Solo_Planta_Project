@@ -1,16 +1,18 @@
 import { Request, Response } from 'express';
-import  { ISite,Site } from '../models/site';
+import { ISite, Site } from '../models/site';
 
- const createSite = async (req: Request, res: Response): Promise<void> => {
+const createSite = async (req: Request, res: Response): Promise<void> => {
   try {
-  
-    let { previous,temperature,volume } = req.body;
+    let { previous, temperature, volume, userId } = req.body;
+    // console.log(req.body);
     // let {image,name} = previous;
     // let {maxValue,minValue}=temparature;
-  
 
     const site: ISite = await Site.create({
-      previous,volume ,temperature,
+      previous,
+      volume,
+      temperature,
+      userId,
     });
 
     await site.save();
@@ -20,20 +22,26 @@ import  { ISite,Site } from '../models/site';
   }
 };
 
-const getSite = async (req:Request,res:Response) : Promise<void> =>{
+const getSite = async (req: Request, res: Response): Promise<void> => {
   try {
     const allSite = await Site.find({});
-    res.status(200).send(allSite)
-    
-    
+    res.status(200).send(allSite);
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-
-
+// const getSiteByUserId = async (req: Request, res: Response): Promise<void> => {
+//   try {
+//     const { id } = req.params;
+//     const getSiteByUser = await Site.find({ id });
+//     console.log(getSiteByUser);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 export default {
-    createSite,getSite 
-}
+  createSite,
+  getSite,
+};

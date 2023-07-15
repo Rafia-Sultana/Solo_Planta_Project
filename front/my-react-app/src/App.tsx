@@ -25,6 +25,10 @@ import MyPlants from './pages/MyPlants';
 import SiteList from './components/MyPlants/AddSite/SiteList';
 import Temperature from './components/MyPlants/AddSite/Temperature/Temperature';
 import SelectedSite from './components/MyPlants/SelectedSite/SelectedSite';
+import Search from './components/Search/Search';
+import Filter from './components/Filter/Filter';
+import Done from './components/MyPlants/Done/Done';
+import FilteredData from './components/Filter/FilteredData/FilteredData';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -43,6 +47,10 @@ function App() {
           <Route path='/sitelist' element={<SiteList />}></Route>
           <Route path='/temperature' element={<Temperature />}></Route>
           <Route path='/selectedsite' element={<SelectedSite />}></Route>
+          <Route path='/search' element={<Search />}></Route>
+          <Route path='/filter' element={<Filter />}></Route>
+          <Route path='/done' element={<Done />}></Route>
+          <Route path='/filtereddata' element={<FilteredData />}></Route>
           {/* <Route
             path='userinfo'
             element={<UserInfo  />}

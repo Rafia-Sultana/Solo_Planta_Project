@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import MultiRangeSlider, { ChangeResult } from "multi-range-slider-react";
 import addSitInfo from "../../../../Services/AddingSiteInfo";
+import authJWT from "../../../../Services/ApiServiceJWT";
 
 const temperature = () => {
     const navigate = useNavigate();
@@ -11,18 +12,30 @@ const temperature = () => {
     const [minValue, setMinValue] = useState(25);
     const [maxValue, setMaxValue] = useState(75);
     current["temperature"] = { minValue, maxValue };
-    console.log(typeof minValue);
+    // console.log(current);
+    // console.log(typeof minValue);
     const handleSubmit = async () => {
+        const profileData = await authJWT.userProfile();
+        const profileId = profileData?._id;
+        // console.log(profileId);
+        current["userId"] = { profileId };
+        console.log(current);
         await addSitInfo.addSite(current);
-        navigate('/find')
+        navigate('/addsite')
 
     }
 
 
+
     return (
-        <div className='mt-72'>
-            <div className='multi-range-slider-container'>
-                <p className="text-center font-bold text-2xl my-4">Temperature</p>
+        <div className='p-5 '>
+            <p className="text-center font-semibold text-xl mt-4">
+
+                How much Temperature does your site have?
+
+            </p>
+            <div className='multi-range-slider-container mt-20'>
+
                 <hr />
                 <MultiRangeSlider
                     min={0}
@@ -37,11 +50,13 @@ const temperature = () => {
                 ></MultiRangeSlider>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <div style={{ margin: '10px' }}>Min: {minValue}</div>
-                    <div style={{ margin: '10px' }}>Max: {maxValue}</div>
+                    <div style={{ margin: '10px' }} className="font-semibold">Min: {minValue}</div>
+                    <div style={{ margin: '10px' }} className="font-semibold">Max: {maxValue}</div>
                 </div>
             </div>
-            <button onClick={handleSubmit}> submit</button>
+            <button
+                onClick={handleSubmit}
+                className="w-full primaryBackground rounded-lg text-white p-3"> submit</button>
         </div>
     )
 

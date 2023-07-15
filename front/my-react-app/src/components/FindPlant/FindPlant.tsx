@@ -13,61 +13,61 @@ const BASE_URL = 'http://localhost:5000';
 const FindPlant = () => {
     const navigate = useNavigate();
 
-    const [plantByName,setPlantByName] = useState(null)
+    const [plantByName, setPlantByName] = useState(null)
 
-    const plants =[
+    const plants = [
         {
-            plantName:"Trunc",
-        image:herb
+            plantName: "Trunc",
+            image: herb
         },
-        
+
         {
-            plantName:"Color",
-        image:orchids
-        },
-        {
-            plantName:"Vegetables",
-        image:vegetable
+            plantName: "Color",
+            image: orchids
         },
         {
-            plantName:"Flower",
-        image:flower
+            plantName: "Vegetables",
+            image: vegetable
         },
         {
-            plantName:"Foliage",
-        image:foliage
+            plantName: "Flower",
+            image: flower
         },
         {
-            plantName:"Bearing",
-        image:cactus
+            plantName: "Foliage",
+            image: foliage
+        },
+        {
+            plantName: "Bearing",
+            image: cactus
         },
 
     ]
 
 
-    const sendPlantName = async (singlePlantName: string) =>{
+    const sendPlantName = async (singlePlantName: string) => {
         // console.log(singlePlantName);
         try {
-            const response = await fetch(`${BASE_URL}/plantByName/${singlePlantName}`,{
-                method:'GET',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            
+            const response = await fetch(`${BASE_URL}/plantByName/${singlePlantName}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+
             });
             if (response.ok) {
                 const data = await response.json();
                 setPlantByName(data);
                 navigate('/plantlist',
-                {
-                    state:data
-                }
+                    {
+                        state: data
+                    }
                 )
-                
-              } else {
+
+            } else {
                 console.log('Request failed with status:', response.status);
-              }
-            
+            }
+
         } catch (error) {
             console.log(error);
         }
@@ -76,31 +76,40 @@ const FindPlant = () => {
     //     if(plantByName.length>=1)
     // },[])
     // console.log(plantByName);
+
+    const handleSearch = () => {
+        navigate('/search')
+    }
     return (
         <div className='p-4'>
-            <h1 className='font-semibold'>Find Plant</h1>
-            <input type="text" placeholder="search" className="input input-bordered w-full bg-gray-200 my-4" />
+            <h2 className='font-semibold text-xl'>Find Plant</h2>
+            <input
+                onClick={handleSearch}
+                type="text"
+                placeholder="search"
+                className="input input-bordered w-full bg-gray-200 my-4"
+            />
             <br />
             <hr />
             <section className="grid grid-cols-3 gap-3 card  my-5 rounded-md">
 
                 {
-                    plants.map((plant)=>(
+                    plants.map((plant) => (
                         <div className="  gap-3 rounded-lg p-3">
                             <img src={plant.image} className='w-32 h-28' alt="" />
                             {/* <b>{plant.plantName}</b> */}
-                            <button onClick={()=>sendPlantName(plant.plantName)}>{plant.plantName}</button>
+                            <button onClick={() => sendPlantName(plant.plantName)}>{plant.plantName}</button>
                         </div>
                     ))
                 }
             </section>
             {plantByName &&
 
-             <PlantByName PlantByName={plantByName} 
-             />
-             }
+                <PlantByName PlantByName={plantByName}
+                />
+            }
             <Icons></Icons>
-            
+
         </div>
     );
 };
