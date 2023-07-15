@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: 'Work Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -17,22 +20,21 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-.primaryBackground{
+.primaryBackground {
   background-color: #327161;
 }
-.primaryColor{
+.primaryColor {
   color: #327161;
- 
 }
-.white{
+.white {
   color: white;
 }
-.red{
+.red {
   color: red;
 }
 
-.lightGreen{
-  background-color: #b2f3b2
+.lightGreen {
+  background-color: #b2f3b2;
 }
 /* a {
   font-weight: 500;
@@ -48,11 +50,12 @@ a:hover {
 } */
 
 body {
-  margin: 0; 
-   /* display: flex; 
+  margin: 0;
+  background-color: #e2ede2;
+  /* display: flex; 
    justify-content: center;
    align-items: center; */
-/*    
+  /*    
   place-items: center;  */
   min-width: 320px;
   min-height: 100vh;

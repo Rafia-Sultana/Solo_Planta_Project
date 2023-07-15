@@ -14,15 +14,17 @@ function LottiePlayer(): any {
 	}
 
 	return (
-		<div style={{ height: '100vh', width: '100vw', backgroundColor: 'white' }}>
+		<div style={{ height: '100vh', width: '100vw', backgroundColor: '#e2ede2' }}>
 			{
 				<Player
 					autoplay={true}
 					loop={false}
 					src="https://assets3.lottiefiles.com/private_files/lf30_ohq6svl5.json"
-					style={{ height: '300px', 
-					width: '300px', marginTop: '200px', 
-					backgroundColor: 'white', borderRadius: '20%' }}
+					style={{
+						height: '300px',
+						width: '300px', marginTop: '200px',
+						backgroundColor: '#e2ede2', borderRadius: '20%'
+					}}
 					onEvent={handleLoopComplete}>
 					<Controls
 						visible={false}

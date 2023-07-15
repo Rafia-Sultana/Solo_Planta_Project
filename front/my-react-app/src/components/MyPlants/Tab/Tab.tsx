@@ -131,7 +131,8 @@ const Tab: React.FC = () => {
 
                                       {singleSite.previous.name}
                                       {/* </span> */}
-                                      <hr />
+                                      <br />
+                                      <br />
                                     </>
                                   ) : (
                                     <></>

@@ -50,8 +50,8 @@ const temperature = () => {
                 ></MultiRangeSlider>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                    <div style={{ margin: '10px' }} className="font-semibold">Min: {minValue}</div>
-                    <div style={{ margin: '10px' }} className="font-semibold">Max: {maxValue}</div>
+                    <div style={{ margin: '10px' }} className="font-semibold">Min: {minValue}℃ </div>
+                    <div style={{ margin: '10px' }} className="font-semibold">Max: {maxValue}℃ </div>
                 </div>
             </div>
             <button

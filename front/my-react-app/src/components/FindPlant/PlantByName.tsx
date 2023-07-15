@@ -11,6 +11,8 @@ const PlantByName: React.FC<plantProps> = (props) => {
   const navigate = useNavigate()
   const location = useLocation();
   const datas = location.state;
+  const name = datas[0].Appeal;
+  // console.log(name);
 
   const handleInfo = (data: any) => {
     navigate('/plantInfo', {
@@ -19,8 +21,8 @@ const PlantByName: React.FC<plantProps> = (props) => {
     // console.log('from plantby name',data);
   }
   return (
-    <div>
-
+    <div className='p-5'>
+      <h2 className='font-bold text-xl primaryColor ml-3 text-center'>{name} Plants List</h2>
       {datas.map((data: any) => (
 
         <div onClick={() => handleInfo(data)} className='card border-2 my-5 p-10  primaryColor'>

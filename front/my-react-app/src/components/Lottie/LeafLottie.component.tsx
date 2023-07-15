@@ -14,16 +14,18 @@ function LeafLottiePlayer(): any {
 	// }
 
 	return (
-		<div style={{   backgroundColor: 'white' }}>
-         
+		<div style={{ backgroundColor: '#e2ede2' }}>
+
 			{
 				<Player
 					autoplay={true}
 					loop={false}
 					src="https://assets3.lottiefiles.com/packages/lf20_pjbhh9ml.json"
-					style={{ height: '250px', 
-					width: '200px',  marginTop:'50px',
-					backgroundColor: 'white', borderRadius: '20%' }}
+					style={{
+						height: '250px',
+						width: '200px', marginTop: '50px',
+						backgroundColor: '#e2ede2', borderRadius: '20%'
+					}}
 					onEvent={handleLoopComplete}>
 					<Controls
 						visible={false}

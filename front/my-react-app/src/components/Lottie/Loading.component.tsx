@@ -16,7 +16,7 @@ function LoadingLottiePlayer(): any {
     }
 
     return (
-        <div style={{ backgroundColor: 'white' }}>
+        <div style={{ backgroundColor: '#e2ede2' }}>
 
             {
                 <Player
@@ -26,7 +26,7 @@ function LoadingLottiePlayer(): any {
                     style={{
                         height: '250px',
                         width: '200px', marginTop: '50px',
-                        backgroundColor: 'white', borderRadius: '20%'
+                        backgroundColor: '#e2ede2', borderRadius: '20%'
                     }}
                     onEvent={handleLoopComplete}>
                     <Controls

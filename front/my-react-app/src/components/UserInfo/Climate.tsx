@@ -74,11 +74,11 @@ const Climate: React.FC = () => {
 
 
   return (
-    <div >
+    <div className='p-5'>
 
       <form >
-        <h3 className='font-bold text-lg text-center'>Climate</h3>
-        <p className=''>Tell us your Climate </p>
+        <h3 className='font-bold text-lg text-center mt-3'>Climate</h3>
+        <p className='mt-3 mb-8 font-semibold text-center'>Please,Tell us your Climate </p>
 
 
         {

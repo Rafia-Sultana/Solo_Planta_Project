@@ -546,7 +546,7 @@ const Identification = () => {
             <img src={drPlanta} alt="" className='rounded-3xl my-3' />
             <p className='p-3'>Find out whats wrong 
             with your plant and get a plant to bring it back to full health.</p> */}
-
+            <h2 className='font-bold my-5 text-center'>Check your Plant HEALTH</h2>
 
             <div className="flex justify-center items-center">
                 <input

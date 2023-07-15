@@ -27,7 +27,7 @@ const LightMeter = () => {
   return (
     <div className="">
       <h4 className='font-bold text-center mt-10'>How much Light have in your site?</h4>
-      <div className='flex flex-col items-center justify-center h-screen'>
+      <div className='flex flex-col items-center justify-center mt-16'>
 
         <input type="range" onChange={handleVolumeChange} />
         <p className='font-semibold'>Light: {volume} Lux</p>

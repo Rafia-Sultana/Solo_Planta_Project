@@ -46,27 +46,27 @@ const PlantInfo = () => {
     return (
         <div className='p-4'>
             <div >
-                <p className='font-bold text-2xl'>{Latin_name}</p>
+                <p className='font-bold text-2xl text-center'>{Latin_name}</p>
                 {/* <p>{Other_names}</p> */}
-                <p>{Common_name}</p>
+                <p className='text-center'>{Common_name}</p>
             </div>
 
             {/* ------------------------------------- */}
             <div className='grid grid-cols-2 m-5 gap-4'>
                 {/* <p className=' shadow-xl card p-5'>  <FcCheckmark />  RECOMMENDED</p> */}
-                <p className='card shadow-md p-4'>
+                <p className='card shadow-md p-4 bg-green-50 flex justify-center items-center'>
                     <GiGrowth />
                     {Growth}
                 </p>
-                <p className='card shadow-md p-4'>
+                <p className='card shadow-md p-4 bg-green-50 flex justify-center items-center'>
                     <IoIosSunny />
                     {Light_ideal.split(' (')[0]}
                 </p>
-                <p className='card shadow-md p-4'>
+                <p className='card shadow-md p-4 bg-green-50 flex justify-center items-center'>
                     <PiTriangle />
                     {wateringDifficulty}
                 </p>
-                <p className='card shadow-md p-4'>
+                <p className='card shadow-md p-4 bg-green-50 flex justify-center items-center'>
                     <FaDroplet />
                     {Avaibility}
                 </p>
@@ -112,7 +112,7 @@ const PlantInfo = () => {
                     </button>
                 </div>
                 <br />
-                <div className='card  shadow-2xl p-2  rounded-lg '>
+                <div className='card  shadow-2xl p-2  rounded-lg bg-green-50'>
                     {active === 1 && (
                         <>
                             <div className='grid grid-cols-1 gap-3 p-2 tab-content '>

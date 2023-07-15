@@ -34,7 +34,7 @@ const Search: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className='p-5'>
             <input
                 type="text"
                 autoFocus={true}
@@ -44,7 +44,7 @@ const Search: React.FC = () => {
                 onChange={handleInputChange}
             />
 
-            <button className="absolute right-36 top-4 transform cursor-pointer" onClick={handleClearInput}>
+            <button className="absolute right-36 top-9 transform cursor-pointer" onClick={handleClearInput}>
                 X
             </button>
 
