@@ -96,7 +96,7 @@ const FindPlant = () => {
                 {
                     plants.map((plant) => (
                         <div className="  gap-3 rounded-lg p-3">
-                            <img src={plant.image} className='w-32 h-28' alt="" />
+                            <img src={plant.image} className='w-32 h-28 rounded-lg' alt="" />
                             {/* <b>{plant.plantName}</b> */}
                             <button onClick={() => sendPlantName(plant.plantName)}>{plant.plantName}</button>
                         </div>

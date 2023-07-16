@@ -1,7 +1,7 @@
 import mongoose from './../db';
 
 interface IPlants extends mongoose.Document {
-  _id:string,
+  _id: string;
   Latin_name: string;
   Family_name: string;
   Other_names: string;
@@ -20,6 +20,7 @@ interface IPlants extends mongoose.Document {
   Appeal?: string;
   Color_Of_leaf?: string;
   Availability?: string;
+  wateringDifficulty: string;
   Pot_diameter?: number;
   Height_at_purchase?: number;
   Width_at_purchase?: number;
@@ -31,25 +32,26 @@ interface IPlants extends mongoose.Document {
   Use?: string;
   Climate: string;
   idealLightLevel: {
-    name: string,
-    minLux: number,
-    maxLux: number,
-    minFc: number,
-    maxFc: number
-  },
-  toleratedLightLevel:{
-    name: string,
-    minLux: number,
-    maxLux: number,
-    minFc: number,
-    maxFc: number
-  }
+    name: string;
+    minLux: number;
+    maxLux: number;
+    minFc: number;
+    maxFc: number;
+  };
+  toleratedLightLevel: {
+    name: string;
+    minLux: number;
+    maxLux: number;
+    minFc: number;
+    maxFc: number;
+  };
+  imgUrl: string;
 }
 
 const plantsSchema = new mongoose.Schema<IPlants>({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
-    required: false
+    required: false,
   },
   Latin_name: {
     type: String,
@@ -79,27 +81,27 @@ const plantsSchema = new mongoose.Schema<IPlants>({
     type: Number,
     required: true,
   },
-  minTempCel:  {
+  minTempCel: {
     type: Number,
     required: true,
   },
-  wateringDifficulty:{
+  wateringDifficulty: {
     type: String,
     required: true,
   },
-  Zone:  {
+  Zone: {
     type: String,
     required: true,
   },
-  Growth:  {
+  Growth: {
     type: String,
     required: true,
   },
-  Light_ideal:  {
+  Light_ideal: {
     type: String,
     required: true,
   },
-  Light_tolered:  {
+  Light_tolered: {
     type: String,
     required: true,
   },
@@ -107,11 +109,11 @@ const plantsSchema = new mongoose.Schema<IPlants>({
     type: String,
     required: true,
   },
-  Insects:  {
+  Insects: {
     type: String,
     required: true,
   },
-  Disease:  {
+  Disease: {
     type: String,
     required: true,
   },
@@ -123,35 +125,35 @@ const plantsSchema = new mongoose.Schema<IPlants>({
     type: String,
     required: true,
   },
-  Availability:  {
+  Availability: {
     type: String,
     required: true,
   },
-  Pot_diameter:  {
+  Pot_diameter: {
     type: Number,
     required: true,
   },
-  Height_at_purchase:  {
+  Height_at_purchase: {
     type: Number,
     required: true,
   },
-  Width_at_purchase:  {
+  Width_at_purchase: {
     type: Number,
     required: true,
   },
-  Height_potential:  {
+  Height_potential: {
     type: Number,
     required: true,
   },
-  Width_potential:  {
+  Width_potential: {
     type: Number,
     required: true,
   },
-  Available_sizes:  {
+  Available_sizes: {
     type: String,
     required: true,
   },
-  Bearing:  {
+  Bearing: {
     type: String,
     required: true,
   },
@@ -173,20 +175,24 @@ const plantsSchema = new mongoose.Schema<IPlants>({
       minLux: Number,
       maxLux: Number,
       minFc: Number,
-      maxFc: Number
-    }
+      maxFc: Number,
+    },
   },
-  toleratedLightLevel:{
+  toleratedLightLevel: {
     type: {
       name: String,
       minLux: Number,
       maxLux: Number,
       minFc: Number,
-      maxFc: Number
-    }
-  }
+      maxFc: Number,
+    },
+  },
+  imgUrl: {
+    type: String,
+    required: true,
+  },
 });
 
 const Plants = mongoose.model<IPlants>('Plants', plantsSchema);
 
-export {Plants,IPlants} ;
+export { Plants, IPlants };

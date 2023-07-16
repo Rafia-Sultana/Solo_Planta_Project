@@ -29,6 +29,7 @@ import Search from './components/Search/Search';
 import Filter from './components/Filter/Filter';
 import Done from './components/MyPlants/Done/Done';
 import FilteredData from './components/Filter/FilteredData/FilteredData';
+import AllPlant from './components/MyPlants/AllPlant/AllPlant';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -63,6 +64,7 @@ function App() {
           <Route path='profile' element={<Profile />}></Route>
           <Route path='/plantList' element={<PlantByName PlantByName={[]} />} />
           <Route path='/plantinfo' element={<PlantInfo />}></Route>
+          {/* <Route path='/plantList' element={<AllPlant />}></Route> */}
           {/* <Route
             path='userinfo'
             element={<UserInfo />}

@@ -45,7 +45,7 @@ const LoginComponent = (props: Authentication) => {
   };
   return (
 
-    <div className=''>
+    <div className='p-5 mt-28'>
 
       <h2 className='text-green-800 text-center  font-bold text-3xl mb-4'>LogIn</h2>
       <>
@@ -71,7 +71,7 @@ const LoginComponent = (props: Authentication) => {
           <button
             type='submit'
             disabled={validateForm()}
-            className='primaryBackground py-4  text-white w-full '
+            className='primaryBackground py-4  text-white w-full rounded-lg '
           >
             Login
           </button>

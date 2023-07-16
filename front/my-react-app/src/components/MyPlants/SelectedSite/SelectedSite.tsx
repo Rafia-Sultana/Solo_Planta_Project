@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import addUserInfo from '../../../Services/AddingUserInfo';
+import Icons from '../../Icons/Icons';
 const BASE_URL = 'http://localhost:5000';
 interface site {
     _id: string;
@@ -43,14 +44,16 @@ const SelectedSite = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const plantId = (location.state.plantInfos._id)
+    const plant_id = (location.state.plantInfos._id)
     console.log(location.state);
     const plantMaxTemp = location.state.plantInfos.maxTempCel
     const plantMinTemp = location.state.plantInfos.minTempCel;
     const plantWateringDifficulty = location.state.plantInfos.wateringDifficulty;
     const plantClimate = location.state.plantInfos.Climate;
+
     // console.log(plantClimate);
 
-    console.log(plantWateringDifficulty)
+    // console.log(plantWateringDifficulty)
 
     // console.log(location.state.plantInfos._id);
     const [userinfo, setUserInfo] = useState<Userinfo[]>([])
@@ -58,12 +61,9 @@ const SelectedSite = () => {
     const [selectedDate, setSelectedDate] = useState('');
     const [profile, setProfile] = useState<ProfileData | null>(null);
     const profileId = profile?._id;
-    // console.log(profileId);
-    // console.log(userinfo);
+    const date = new Date(selectedDate);
+    // console.log(date);
 
-
-
-    // console.log(selectedDate);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -113,12 +113,13 @@ const SelectedSite = () => {
 
 
     const handleSingleSite = async (singleSiteId: string) => {
+        // console.log(date);
 
         const createPlant = { profileId, singleSiteId, plantId, selectedDate }
         // console.log(singleSiteId);
 
         await AllPlant.createPlantByUser(createPlant);
-
+        await AllPlant.wateringLogByUser({ plant_id, date })
 
     };
 
@@ -141,7 +142,7 @@ const SelectedSite = () => {
 
 
 
-            <h3 className='text-center font-bold'>Pick a Site...
+            <h3 className='text-center font-bold mb-8 text-xl'>Pick a Site...
                 <span className='text-green-500 font-bold'>{profile?.name}!!</span>
             </h3>
             <input
@@ -171,6 +172,7 @@ const SelectedSite = () => {
                     )}
                 </div>
             ))}
+            <Icons></Icons>
 
         </div>
     );

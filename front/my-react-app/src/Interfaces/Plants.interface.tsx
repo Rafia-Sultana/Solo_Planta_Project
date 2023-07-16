@@ -42,7 +42,8 @@ interface Plants {
     maxLux: number,
     minFc: number,
     maxFc: number
-  }
+  },
+  imgUrl: string
 }
 
 

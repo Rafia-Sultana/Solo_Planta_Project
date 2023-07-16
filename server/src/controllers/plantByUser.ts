@@ -13,7 +13,7 @@ const createPlantByUser = async (
       plantId: plant_id,
       selectedDate: date,
     } = req.body;
-    console.log('body', req.body);
+    // console.log('body', req.body);
 
     // const plantInfo = await Plants.findOne({ _id: plant_id });
     // console.log('plantInfo', plantInfo);
@@ -24,7 +24,7 @@ const createPlantByUser = async (
       plant_id,
       date,
     });
-    console.log(plant);
+    // console.log(plant);
     await plant.save();
     res.status(200).send(plant);
   } catch (error) {
@@ -59,7 +59,7 @@ const getPlantsByUserId = async (
 const getPlantByName = async (req: Request, res: Response): Promise<void> => {
   try {
     const { name } = req.params;
-    console.log(req.params);
+    // console.log(req.params);
     const plants = await Plants.find({ Appeal: name });
     // console.log(plants);
     res.send(plants);

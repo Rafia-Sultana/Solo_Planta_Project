@@ -75,5 +75,18 @@ plants.filterPlantByUser = async (filterPlant: Plants): Promise<void> => {
     .catch((err) => console.log(err));
 
 }
+plants.wateringLogByUser = async (wateringLog: any): Promise<void> => {
+  // console.log(wateringLog);
+  return await fetch(`${BASE_URL}/water/log`, {
+    method: 'POST',
+    credentials: 'include',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(wateringLog),
+  })
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+
+}
 
 export default plants;

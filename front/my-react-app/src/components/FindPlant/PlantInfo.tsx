@@ -10,6 +10,7 @@ import { PiTriangle } from 'react-icons/pi';
 import { FaDroplet } from 'react-icons/fa6';
 import { GiGrowth } from 'react-icons/gi';
 import { useState } from 'react';
+import Icons from '../Icons/Icons';
 
 const PlantInfo = () => {
     const [active, setActive] = useState(1);
@@ -40,11 +41,12 @@ const PlantInfo = () => {
         maxTempCel,
         minTempCel,
         Origin, Zone, Climate, Use, Bearing, Pruning, Family_name, Color_of_leaf, Pot_diameter, Width_potential,
-        Height_potential, Light_tolered
+        Height_potential, Light_tolered, imgUrl
     } = plantInfos;
 
     return (
         <div className='p-4'>
+            <img src={imgUrl} alt="" className='rounded-lg  ' />
             <div >
                 <p className='font-bold text-2xl text-center'>{Latin_name}</p>
                 {/* <p>{Other_names}</p> */}
@@ -233,6 +235,7 @@ const PlantInfo = () => {
                     )}
                 </div>
             </div>
+            <Icons></Icons>
         </div>
     );
 };

@@ -456,6 +456,7 @@ const Identification = () => {
         }
     ]
     const navigate = useNavigate();
+    const [toggle, setToggle] = useState<boolean>(true);
     const [image, setImage] = useState<string | null>(null);
     const [result, setResult] = useState<any[]>([]);
     const showFullDescription = false;
@@ -466,6 +467,9 @@ const Identification = () => {
         //setShowFullDescription(!showFullDescription);
 
     };
+    const handleClick = () => {
+        setToggle(false);
+    }
     const onImageChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files[0]) {
             //setImage(URL.createObjectURL(event.target.files[0]));
@@ -547,11 +551,15 @@ const Identification = () => {
             <p className='p-3'>Find out whats wrong 
             with your plant and get a plant to bring it back to full health.</p> */}
             <h2 className='font-bold my-5 text-center'>Check your Plant HEALTH</h2>
+            {
+                toggle && <img src={drPlanta} alt="" className='rounded-3xl my-3' />
+            }
 
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center" onClick={handleClick}>
                 <input
                     type="file"
                     onChange={onImageChange}
+
                     className="hidden"
                     id="uploadButton"
                 />

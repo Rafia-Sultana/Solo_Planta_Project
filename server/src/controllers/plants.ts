@@ -20,7 +20,7 @@ import { Request, Response } from 'express';
 const addPlant = async (req: Request, res: Response) => {
     try {
         const {Latin_name, Family_name} = req.body;
-        console.log(req.body);
+        // console.log(req.body);
         const plant = await Plants.create({Latin_name, Family_name});
         res.status(201).send(plant);
     } catch (error) {
@@ -41,7 +41,7 @@ const getPlantById = async (req: Request, res: Response) => {
 	try {
       const { id } = req.params;
       const plant = await Plants.find({_id:id});  
-      console.log(plant);
+      // console.log(plant);
 		res.send(plant);
 	} catch (error) {
 		console.log(error);

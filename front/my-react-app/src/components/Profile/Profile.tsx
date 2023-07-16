@@ -30,8 +30,8 @@ const Profile: React.FC = () => {
   console.log(userInfo)
   const handleProfile = async () => {
     const profileData = await authJWT.userProfile();
-    // console.log(profileData);
-    setProfile(profileData);
+
+    if (profile?._id !== profileData._id) setProfile(profileData);
   };
 
   useEffect(() => {

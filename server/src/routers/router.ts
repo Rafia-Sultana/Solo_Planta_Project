@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import wateringLogController from '../controllers/wateringLog';
 import authenticationController from '../controllers/authentication';
 import userInfoController from '../controllers/userInfo';
 import addPlantController from '../controllers/plants';
@@ -37,5 +38,11 @@ router.get('/plantByName/:name', plantByUserId.getPlantByName);
 router.get('/getplantbyuser', createPlantByUserController.getPlantsByUser);
 router.get('/userinfo/:id', userInfoController.getUserInfo);
 router.post('/filter', createPlantByUserController.plantByFilter);
+
+router.post('/water/log', wateringLogController.createWateringLog);
+router.get(
+  '/water/schedule/:userId',
+  wateringLogController.getWaterScheduleForAllPlants
+);
 
 export default router;
