@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import authJWT from "../../Services/ApiServiceJWT";
 import plants from "../../Services/AllPlant";
+import Icons from "../Icons/Icons";
 const BASE_URL = 'http://localhost:5000';
 
 
@@ -28,15 +29,13 @@ const Profile: React.FC = () => {
 
 
   console.log(userInfo)
-  const handleProfile = async () => {
-    const profileData = await authJWT.userProfile();
+  // const handleProfile = async () => {
 
-    if (profile?._id !== profileData._id) setProfile(profileData);
-  };
+  // };
 
-  useEffect(() => {
-    handleProfile();
-  }, []);
+  // useEffect(() => {
+  //   handleProfile();
+  // }, []);
 
 
 
@@ -44,36 +43,24 @@ const Profile: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const profileData = await authJWT.userProfile();
+        const id = profileData?._id;
 
+        if (profileData?._id !== profile?._id) setProfile(profileData);
 
+        const response = await fetch(`${BASE_URL}/userinfo/${id}`);
+        const responseData = await response.json(); // Wait for the JSON data to be parsed
 
-        const response = await fetch(`${BASE_URL}/userinfo/${profileId}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-
-        })
-        console.log(response)
-        const data = await response.json()
-        return data;
-
-        if (response.ok) {
-          // const data = await response.json();
-
-
-
-        } else {
-          console.log('Request failed with status:', response.status);
-        }
+        setUserInfo(responseData); // Log the parsed JSON data
 
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchData().then((res) => console.log(res));
+    fetchData();
   }, []);
+
 
   return (
     <div className="card shadow-2xl h-screen ">
@@ -97,34 +84,48 @@ const Profile: React.FC = () => {
                 <label htmlFor="" >Account</label>
                 <p className="font-bold ">Standard</p>
               </div>
+              <div className="bg-gray-100 p-4 rounded-lg">
+                <label htmlFor="" >Indoor/Outdoor</label>
+                <p className="font-bold ">
+                  {userInfo[0]?.indoor_outdoor
+                  }</p>
+              </div>
+              <div className="bg-gray-100 p-4 rounded-lg">
+                <label htmlFor="" >Skill Level</label>
+                <p className="font-bold ">{userInfo[0]?.skill_level}</p>
+              </div>
+              <div className="bg-gray-100 p-4 rounded-lg">
+                <label htmlFor="" >Climate</label>
+                <p className="font-bold ">{userInfo[0]?.climate}</p>
+              </div>
+
+              {/* <div className="bg-gray-100 p-4 rounded-lg">
+              
+                <p className="font-bold ">LogOut</p>
+              </div> */}
 
             </div>
-
+            <Icons></Icons>
             {/* <p><span>Indoor/Outdoor:</span></p>
             <p><span>Skill Level:</span></p> */}
           </div>
         </>
       )}
 
-      {
+
+
+
+
+
+
+
+      {/*   {
         loader ?
           <> <span className="loading loading-dots loading-lg"></span></> :
           (<>
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <label htmlFor="" >Indoor/Outdoor</label>
-              <p className="font-bold ">{userInfo[0]?.indoor_outdoor
-              }</p>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <label htmlFor="" >Skill Level</label>
-              <p className="font-bold ">{userInfo[0]?.skill_level}</p>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <label htmlFor="" >Climate</label>
-              <p className="font-bold ">{userInfo[0]?.climate}</p>
-            </div>
+            
           </>)
-      }
+      } */}
     </div>
   );
 };

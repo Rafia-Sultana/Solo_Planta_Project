@@ -47,6 +47,21 @@ addSitInfo = {
             })
             .then((res) => res.json())
             .catch((err) => console.log(err));
+    },
+    getSiteById: async (id: string): Promise<void> => {
+        // console.log('id from service', id);
+        return await fetch(`${BASE_URL}/allsite/${id}`,
+            {
+                method: 'GET',
+                credentials: 'include',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: `Bearer ${token}`,
+                },
+            })
+            .then((res) => res.json())
+            .catch((err) => console.log(err));
     }
 }
 export default addSitInfo;

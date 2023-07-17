@@ -65,7 +65,7 @@ const getWaterScheduleForAllPlants = async (
         });
     }
 
-    console.log('Schedule: ', schedule);
+    // console.log('Schedule: ', schedule);
 
     res.send(schedule);
   } catch (error) {

@@ -1,20 +1,20 @@
 const BASE_URL = 'http://localhost:5000';
 import User from './../Interfaces/User.interface';
 
-let authJWT:any ={
-    register : async function () {},
-    login: async function () {}
+let authJWT: any = {
+	register: async function () { },
+	login: async function () { }
 }
 
- interface RegisterResponse {
-    success: boolean,
-    message:string
- }
+interface RegisterResponse {
+	success: boolean,
+	message: string
+}
 
- const token: string | null =localStorage.getItem('accessToken');
+const token: string | null = localStorage.getItem('accessToken');
 
- authJWT = {
-    register: async (user: User): Promise<RegisterResponse> => {
+authJWT = {
+	register: async (user: User): Promise<RegisterResponse> => {
 		return await fetch(`${BASE_URL}/register`, {
 			method: 'POST',
 			credentials: 'include',
@@ -36,7 +36,7 @@ let authJWT:any ={
 			.then((res) => res.json())
 			.catch((err) => console.log(err));
 	},
-    userProfile: async (): Promise<RegisterResponse> => {
+	userProfile: async (): Promise<RegisterResponse> => {
 		return await fetch(`${BASE_URL}/profile`, {
 			method: 'GET',
 			credentials: 'include',
@@ -48,6 +48,20 @@ let authJWT:any ={
 		})
 			.then((res) => res.json())
 			.catch((err) => console.log(err));
+	},
+
+	logout: async (): Promise<RegisterResponse> => {
+		return await fetch(`${BASE_URL}/logout`, {
+			method: 'GET',
+			credentials: 'include',
+			mode: 'cors',
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: `Bearer ${token}`,
+			},
+		})
+			.then((res) => res.json())
+			.catch((err) => console.log(err));
 	}
- }
- export default authJWT;
+}
+export default authJWT;

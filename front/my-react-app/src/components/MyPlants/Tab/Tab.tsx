@@ -115,6 +115,7 @@ const Tab: React.FC = () => {
                         <div className=''>
                           {singlePlant._id == singlePlantByUser.plant_id ? (
                             <div className='card '>
+                              <img src={singlePlant.imgUrl} className='w-24 h-24 rounded-lg avatar' alt="" />
 
                               <p className='font-semibold'>
                                 {singlePlant.Common_name}

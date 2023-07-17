@@ -30,6 +30,7 @@ router.get(
 
 router.post('/addsite', addSite.createSite);
 router.get('/allsite', addSite.getSite);
+router.get('/allsite/:id', addSite.getSiteById);
 
 router.post('/plantByUser', createPlantByUserController.createPlantByUser);
 router.get('/plantByUserId/:id', plantByUserId.getPlantsByUserId);

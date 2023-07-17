@@ -81,6 +81,7 @@ const Tab: React.FC = () => {
             return (
               <div className='tab-content  mb-4' key={single.id}>
                 <div>
+
                   <p className='font-semibold'>{single.plantSpecies.Common_name}</p>
                   <p>Watering in: {single.nextWatering}</p>
                 </div>
@@ -98,14 +99,14 @@ const Tab: React.FC = () => {
           }
         })}
 
-        {!waterSchedule.some((single) => single.nextWatering === 'Water today.' && active === 1) && (
-          <b className='tab-content  mb-4'>
-            <p className='text-center font-bold'>No schedule for today</p>
-          </b>
-        )}
+
       </div>
 
-
+      {/* {!waterSchedule.some((single) => single.nextWatering === 'Water today.' && active === 1) && (
+        <b className='tab-content  mb-4'>
+          <p className='text-center font-bold'>No schedule for today</p>
+        </b>
+      )} */}
 
 
       {/* <div className='card  shadow-2xl p-2  rounded-lg h-44'> */}

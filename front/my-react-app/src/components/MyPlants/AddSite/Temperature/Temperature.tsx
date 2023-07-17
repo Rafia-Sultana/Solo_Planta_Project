@@ -29,7 +29,7 @@ const temperature = () => {
 
     return (
         <div className='p-5 '>
-            <p className="text-center font-semibold text-xl mt-4">
+            <p className="text-center font-semibold text-xl mt-16">
 
                 How much Temperature does your site have?
 

@@ -488,7 +488,7 @@ const Identification = () => {
     const myHeaders = new Headers();
     myHeaders.append(
         'Api-Key',
-        '5sAn6kRvaNgFrov73OcIOideSU2IdCAfxIdm3UXtBp28nI36gG'
+        'GNz5kRB2XSykIWEchqcl2KKlBz7MjYe5BHYOFtn9WYMzj1ioJL'
     );
     myHeaders.append('Content-Type', 'application/json');
 

@@ -9,20 +9,8 @@ const IndoorOutdoor: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const skillDataByUser = (location.state);
-  console.log(location.state);
-  // const modalRef = useRef<HTMLDialogElement>(null);
 
-  // const openModal = () => {
-  //   if (modalRef.current) {
-  //     modalRef.current.showModal();
-  //   }
-  // };
 
-  // const closeModal = () => {
-  //   if (modalRef.current) {
-  //     modalRef.current.close();
-  //   }
-  // };
   const siteData = [
     {
       siteName: "Indoor",
@@ -38,7 +26,7 @@ const IndoorOutdoor: React.FC = () => {
   ]
 
   const handleForm = (singleData: site) => {
-    // console.log(singleData);
+
     navigate('/climate', {
       state: {
         singleData, skillDataByUser
@@ -47,9 +35,7 @@ const IndoorOutdoor: React.FC = () => {
   }
   return (
     <div className='p-5'>
-      {/* <button className='btn  primaryBackground text-white' onClick={openModal}>
-      Indoor or Outdoor
-      </button> */}
+
 
       <form method='' className='mt-3'>
         <h3 className='font-bold text-lg text-center'>Indoor or Outdoor</h3>
@@ -58,7 +44,7 @@ const IndoorOutdoor: React.FC = () => {
 
         {
           siteData.map((singleData) =>
-            <>
+            <div key={singleData.siteName}>
               <div className="flex justify-center gap-3 my-5" onClick={() => handleForm(singleData)}>
                 <img src={singleData.image} alt="" className='w-28 rounded-lg' />
                 <div>
@@ -67,7 +53,7 @@ const IndoorOutdoor: React.FC = () => {
                 </div>
               </div>
               <hr />
-            </>
+            </div>
           )
         }
 

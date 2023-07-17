@@ -30,6 +30,7 @@ import Filter from './components/Filter/Filter';
 import Done from './components/MyPlants/Done/Done';
 import FilteredData from './components/Filter/FilteredData/FilteredData';
 import AllPlant from './components/MyPlants/AllPlant/AllPlant';
+import SelectedDate from './components/MyPlants/SelectedDate/SelectedDate';
 // import AllData from './components/UserInfo/allData';
 // import Modal from './components/UserInfo/modal';
 function App() {
@@ -52,6 +53,7 @@ function App() {
           <Route path='/filter' element={<Filter />}></Route>
           <Route path='/done' element={<Done />}></Route>
           <Route path='/filtereddata' element={<FilteredData />}></Route>
+          <Route path='/selectedDate' element={<SelectedDate />}></Route>
           {/* <Route
             path='userinfo'
             element={<UserInfo  />}

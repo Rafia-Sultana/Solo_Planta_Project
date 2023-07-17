@@ -72,10 +72,7 @@ const FindPlant = () => {
             console.log(error);
         }
     }
-    // useEffect(()=>{
-    //     if(plantByName.length>=1)
-    // },[])
-    // console.log(plantByName);
+
 
     const handleSearch = () => {
         navigate('/search')
@@ -89,7 +86,7 @@ const FindPlant = () => {
                 placeholder="search"
                 className="input input-bordered w-full bg-gray-200 my-4"
             />
-            <br />
+
             <hr />
             <section className="grid grid-cols-3 gap-3 card  my-5 rounded-md">
 
@@ -97,8 +94,10 @@ const FindPlant = () => {
                     plants.map((plant) => (
                         <div className="  gap-3 rounded-lg p-3">
                             <img src={plant.image} className='w-32 h-28 rounded-lg' alt="" />
-                            {/* <b>{plant.plantName}</b> */}
-                            <button onClick={() => sendPlantName(plant.plantName)}>{plant.plantName}</button>
+
+                            <button onClick={() => sendPlantName(plant.plantName)} >
+                                <p className='text-center ml-2 mt-1 font-semibold'>{plant.plantName}</p>
+                            </button>
                         </div>
                     ))
                 }

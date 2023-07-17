@@ -31,17 +31,21 @@ const getSite = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// const getSiteByUserId = async (req: Request, res: Response): Promise<void> => {
-//   try {
-//     const { id } = req.params;
-//     const getSiteByUser = await Site.find({ id });
-//     console.log(getSiteByUser);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const getSiteById = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+
+    const getSiteByUser = await Site.find({ 'userId.profileId': id });
+    console.log(getSiteByUser);
+    res.send(getSiteByUser);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
 
 export default {
   createSite,
   getSite,
+  getSiteById,
 };
